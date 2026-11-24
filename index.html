@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COURTSIDE — Your NBA. Your Legacy.</title>
+<style>
+:root{--bg:#080b12;--panel:#111722;--panel2:#172131;--line:#263449;--text:#f4f7fb;--muted:#9aa9bc;--orange:#ff7138;--lime:#c7f36b;--blue:#6db8ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#172943 0,transparent 36%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,Arial,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:1180px;margin:auto;padding:0 22px}
+header{height:72px;border-bottom:1px solid #ffffff16;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#080b12eF;backdrop-filter:blur(14px);z-index:5}
+.logo{font-weight:950;letter-spacing:2px;font-size:20px}.logo span{color:var(--orange)}nav{display:flex;gap:8px;flex-wrap:wrap}.nav{background:none;border:0;color:var(--muted);padding:10px 12px;border-radius:9px}.nav.active,.nav:hover{background:#ffffff12;color:white}
+.hero{padding:55px 0 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:25px;align-items:center}.eyebrow{color:var(--lime);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(42px,7vw,78px);line-height:.96;letter-spacing:-4px;margin:15px 0}h1 em{font-style:normal;color:var(--orange)}.lead{color:var(--muted);font-size:17px;max-width:590px}
+.hero-art{min-height:270px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#263c59,#111722 65%);position:relative;overflow:hidden;display:grid;place-items:center}
+.ball{font-size:150px;filter:drop-shadow(0 25px 18px #0008);transform:rotate(-18deg)}.courtline{position:absolute;width:340px;height:150px;border:2px solid #ffffff24;border-radius:50%;bottom:-75px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.primary,.secondary,.choice{border:0;border-radius:10px;padding:12px 18px;font-weight:800}.primary{background:var(--orange);color:#160b06}.secondary{background:#ffffff12;color:white;border:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 35px}.stat,.panel,.feature{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px}.stat small,.muted{color:var(--muted)}.stat strong{display:block;font-size:24px;margin-top:5px}
+.section{display:none;padding:30px 0 60px}.section.active{display:block}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}.section h2{font-size:30px;margin:0;letter-spacing:-1px}.sectionhead p{color:var(--muted);margin:5px 0 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.feature h3{margin:5px 0}.feature p{color:var(--muted);margin:0}.icon{font-size:25px}.panel{margin-bottom:14px}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field input,.field select{width:100%;background:#0b111b;border:1px solid var(--line);color:white;border-radius:9px;padding:12px}
+.teamgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.team{background:#0c131e;border:1px solid var(--line);border-radius:11px;padding:12px;text-align:left;color:white}.team:hover,.team.selected{border-color:var(--orange);background:#2b1b18}.team b{display:block}.team small{color:var(--muted)}
+.choice{display:block;text-align:left;width:100%;background:#0c131e;border:1px solid var(--line);color:white;margin:8px 0}.choice:hover{border-color:var(--lime)}.choice small{display:block;color:var(--muted);font-weight:400;margin-top:4px}
+.bar{height:8px;background:#263449;border-radius:8px;overflow:hidden;margin:6px 0 13px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--lime))}
+.log{border-left:2px solid var(--orange);padding:5px 0 5px 14px;margin:10px 0;color:var(--muted)}.pill{display:inline-block;padding:4px 8px;background:#263449;border-radius:30px;font-size:11px;color:var(--lime);font-weight:800}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:35px}.hero-art{min-height:180px}.ball{font-size:110px}.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr 1fr}.teamgrid{grid-template-columns:repeat(2,1fr)}nav{gap:0}.nav{padding:8px;font-size:12px}.formgrid{grid-template-columns:1fr}h1{letter-spacing:-2px}}
+@media(max-width:430px){.grid{grid-template-columns:1fr}.wrap{padding:0 15px}}
+</style>
+</head>
+<body>
+<header><div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%;gap:10px"><div class="logo">COURT<span>SIDE</span></div><nav>
+<button class="nav active" data-tab="home">Home</button><button class="nav" data-tab="career">My Career</button><button class="nav" data-tab="universe">NBA Universe</button><button class="nav" data-tab="profile">My Player</button>
+</nav></div></header>
+<main class="wrap">
+<section id="home" class="section active">
+<div class="hero"><div><div class="eyebrow">The ultimate basketball universe</div><h1>YOUR NBA.<br><em>YOUR LEGACY.</em></h1><p class="lead">Follow the league. Create your player. Make the calls that shape your career — from draft night to the championship parade.</p><div class="actions"><button class="primary" onclick="showTab('career')">START YOUR CAREER ↗</button><button class="secondary" onclick="showTab('universe')">EXPLORE THE NBA</button></div></div><div class="hero-art"><div class="courtline"></div><div class="ball">🏀</div></div></div>
+<div class="stats"><div class="stat"><small>CAREER MODE</small><strong>Interactive</strong></div><div class="stat"><small>NBA TEAMS</small><strong>30</strong></div><div class="stat"><small>YOUR DECISIONS</small><strong>Every season</strong></div><div class="stat"><small>YOUR DESTINY</small><strong>Unwritten</strong></div></div>
+<div class="sectionhead"><div><h2>Inside COURTSIDE</h2><p>Everything basketball, all in one place.</p></div></div><div class="grid">
+<div class="feature"><div class="icon">🏆</div><h3>Build a legacy</h3><p>Chase awards, playoff runs and championships in your own career story.</p></div>
+<div class="feature"><div class="icon">✍️</div><h3>Make the calls</h3><p>Choose agents, negotiate deals, respond to trades and shape your reputation.</p></div>
+<div class="feature"><div class="icon">📊</div><h3>Track your game</h3><p>Develop your attributes and follow your fictional career statistics.</p></div>
+</div>
+</section>
+<section id="career" class="section">
+<div class="sectionhead"><div><div class="eyebrow">My NBA Career</div><h2 id="careerTitle">Your story starts here.</h2><p id="careerSub">Create your prospect and enter the league.</p></div><span class="pill" id="careerStatus">PROSPECT</span></div>
+<div id="setup" class="panel"><h3>Create your player</h3><div class="formgrid">
+<div class="field"><label>PLAYER NAME</label><input id="playerName" maxlength="22" placeholder="e.g. Alex Carter"></div>
+<div class="field"><label>POSITION</label><select id="position"><option>Point Guard</option><option>Shooting Guard</option><option>Small Forward</option><option>Power Forward</option><option>Center</option></select></div>
+<div class="field"><label>PLAY STYLE</label><select id="style"><option value="Scorer">Three-Level Scorer</option><option value="Playmaker">Floor General</option><option value="Defender">Lockdown Defender</option><option value="Athlete">Explosive Athlete</option></select></div>
+<div class="field"><label>STARTING PATH</label><select id="path"><option value="College">One-and-done college star</option><option value="G League">G League Ignite-style route</option><option value="International">International prospect</option><option value="Undrafted">Undrafted underdog</option></select></div>
+</div><button class="primary" style="margin-top:16px" onclick="createPlayer()">ENTER THE DRAFT</button></div>
+<div id="careerPlay" style="display:none">
+<div class="stats"><div class="stat"><small>OVERALL</small><strong id="ovr">68</strong></div><div class="stat"><small>SEASON</small><strong id="season">Rookie</strong></div><div class="stat"><small>TEAM</small><strong id="teamStat">Unsigned</strong></div><div class="stat"><small>FANS</small><strong id="fans">1.2K</strong></div></div>
+<div class="panel"><h3 id="eventTitle">Draft night is here.</h3><p id="eventText" class="muted">Your journey is about to begin.</p><div id="choices"></div></div>
+<div class="panel"><h3>Player attributes</h3><div id="attributes"></div></div>
+<div class="panel"><h3>Career journal</h3><div id="journal"></div><button class="secondary" onclick="resetCareer()">Reset career</button></div>
+</div>
+</section>
+<section id="universe" class="section">
+<div class="sectionhead"><div><div class="eyebrow">The league</div><h2>NBA Universe</h2><p>Explore all 30 franchises. Choose a destination when your career reaches free agency.</p></div></div>
+<div class="panel"><div class="field"><label>FIND A TEAM</label><input id="teamSearch" placeholder="Search teams or cities..." oninput="renderTeams()"></div></div><div class="teamgrid" id="teams"></div>
+<p class="muted" style="font-size:12px;margin-top:14px">Team directory is a starter reference. Live standings, scores and roster data are not connected yet.</p>
+</section>
+<section id="profile" class="section">
+<div class="sectionhead"><div><div class="eyebrow">My Player</div><h2>Player card</h2><p>Your career identity and progress.</p></div></div>
+<div class="panel" id="profileCard"><h3>No player created yet</h3><p class="muted">Start a career to build your player card.</p><button class="primary" onclick="showTab('career')">Create player</button></div>
+</section>
+</main>
+<footer><div class="wrap">COURTSIDE is an independent fan-made concept and is not affiliated with or endorsed by the NBA or its teams. Career outcomes are fictional. NBA team names are used for informational/fan purposes.</div></footer>
+<script>
+const teams=[
+["Atlanta Hawks","ATL"],["Boston Celtics","BOS"],["Brooklyn Nets","BKN"],["Charlotte Hornets","CHA"],["Chicago Bulls","CHI"],["Cleveland Cavaliers","CLE"],["Dallas Mavericks","DAL"],["Denver Nuggets","DEN"],["Detroit Pistons","DET"],["Golden State Warriors","GSW"],["Houston Rockets","HOU"],["Indiana Pacers","IND"],["LA Clippers","LAC"],["Los Angeles Lakers","LAL"],["Memphis Grizzlies","MEM"],["Miami Heat","MIA"],["Milwaukee Bucks","MIL"],["Minnesota Timberwolves","MIN"],["New Orleans Pelicans","NOP"],["New York Knicks","NYK"],["Oklahoma City Thunder","OKC"],["Orlando Magic","ORL"],["Philadelphia 76ers","PHI"],["Phoenix Suns","PHX"],["Portland Trail Blazers","POR"],["Sacramento Kings","SAC"],["San Antonio Spurs","SAS"],["Toronto Raptors","TOR"],["Utah Jazz","UTA"],["Washington Wizards","WAS"]];
+let player=JSON.parse(localStorage.getItem("courtsideCareer")||"null"), selectedTeam="";
+function showTab(id){document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id===id));document.querySelectorAll(".nav").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));window.scrollTo({top:0,behavior:"smooth"});if(id==="career")renderCareer();if(id==="profile")renderProfile()}
+document.querySelectorAll(".nav").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+function save(){localStorage.setItem("courtsideCareer",JSON.stringify(player))}
+function createPlayer(){let name=document.getElementById("playerName").value.trim();if(!name){alert("Enter your player name first.");return}
+let style=document.getElementById("style").value;player={name,position:document.getElementById("position").value,style,path:document.getElementById("path").value,team:"Unsigned",season:1,ovr:style==="Defender"?69:68,fans:1200,stats:{Shooting:68,Playmaking:68,Defense:68,Athleticism:68,Leadership:65},journal:[],stage:"draft",salary:"—",awards:[]};
+if(style==="Scorer")player.stats.Shooting=74;if(style==="Playmaker")player.stats.Playmaking=75;if(style==="Defender")player.stats.Defense=76;if(style==="Athlete")player.stats.Athleticism=77;
+log("You declared for the NBA journey via the "+player.path+" path.");save();renderCareer()}
+function log(t){player.journal.unshift("Season "+player.season+": "+t)}
+function renderCareer(){let setup=document.getElementById("setup"),play=document.getElementById("careerPlay");if(!player){setup.style.display="block";play.style.display="none";return}setup.style.display="none";play.style.display="block";
+document.getElementById("careerTitle").textContent=player.name+" — The Journey";document.getElementById("careerSub").textContent=player.position+" · "+player.style+" · "+player.path;document.getElementById("careerStatus").textContent=player.stage.toUpperCase();document.getElementById("ovr").textContent=player.ovr;document.getElementById("season").textContent=player.season===1?"Rookie":"Year "+player.season;document.getElementById("teamStat").textContent=player.team;document.getElementById("fans").textContent=player.fans>=1000000?(player.fans/1000000).toFixed(1)+"M":(player.fans/1000).toFixed(1)+"K";
+let attrs=document.getElementById("attributes");attrs.innerHTML=Object.entries(player.stats).map(([k,v])=>`<div><div style="display:flex;justify-content:space-between"><span>${k}</span><b>${v}</b></div><div class="bar"><i style="width:${v}%"></i></div></div>`).join("");
+document.getElementById("journal").innerHTML=player.journal.map(x=>`<div class="log">${x}</div>`).join("")||'<p class="muted">Your story is waiting to be written.</p>';renderEvent()}
+function event(title,desc,opts){document.getElementById("eventTitle").textContent=title;document.getElementById("eventText").textContent=desc;document.getElementById("choices").innerHTML=opts.map((o,i)=>`<button class="choice" onclick="pick(${i})">${o[0]}<small>${o[1]}</small></button>`).join("");window.currentOptions=opts}
+function renderEvent(){if(player.stage==="draft"){event("Draft night: the phone is ringing.", "A few teams are interested. Choose the environment that fits your next chapter.",[["Join a rebuilding team","More room to grow and earn a bigger role."],["Join a playoff contender","Learn from veterans and compete right away."],["Bet on yourself","Take a short-term prove-it opportunity."]])}
+else if(player.stage==="contract"){event("Free agency: choose your next team.", "Your rookie deal is complete. Select a franchise to continue your story.",[["Choose a team","Open the team list and pick your destination."],["Take a one-year prove-it deal","A short contract could raise your value."]])}
+else if(player.stage==="season"){event("A big moment in your season.", "The coaching staff wants to know what you will focus on this year.",[["Put in extra work","Improve your game. Small chance of fatigue."],["Become a team leader","Build chemistry, fans and leadership."],["Focus on winning now","Prioritize team success and playoff momentum."]])}
+else if(player.stage==="trade"){event("Trade deadline: a new opportunity.", "Your front office has received interest from another franchise.",[["Stay loyal","Keep building where you are."],["Welcome a fresh start","Explore a move to another team."]])}
+else {event("Your career continues.", "Make your next move.",[["Start next season","A new year, a new opportunity."]])}}
+function pick(i){let o=window.currentOptions[i][0];
+if(player.stage==="draft"){if(i===0){player.ovr+=1;player.fans+=500}else if(i===1){player.stats.Leadership+=3;player.fans+=1000}else{player.ovr+=2;player.fans+=200}player.stage="sign";log("Chose the "+o.toLowerCase()+" route.");teamPicker();return}
+if(player.stage==="sign"){if(i===0){teamPicker();return}player.salary="$2.4M / 1 year";player.stage="season";log("Signed a one-year prove-it contract.");}
+else if(player.stage==="contract"){if(i===0){teamPicker();return}player.season+=1;player.salary="$8M / 1 year";player.stage="season";log("Accepted a one-year contract for the new season.");}
+else if(player.stage==="season"){if(i===0){let key=player.style==="Scorer"?"Shooting":player.style==="Playmaker"?"Playmaking":player.style==="Defender"?"Defense":"Athleticism";player.stats[key]=Math.min(99,player.stats[key]+5);player.ovr=Math.min(99,player.ovr+2);log("Extra training paid off. "+key+" improved.");}
+if(i===1){player.stats.Leadership=Math.min(99,player.stats.Leadership+5);player.fans+=25000;log("Stepped up as a leader and grew your fanbase.");}
+if(i===2){player.ovr=Math.min(99,player.ovr+1);player.fans+=15000;log("Focused on winning and made a strong impression.");}
+player.stage="trade";}
+else if(player.stage==="trade"){if(i===1){player.stage="contract";log("Asked your agent to explore a fresh start.");}else{log("Stayed loyal to "+player.team+".");player.stage="contract";}}
+save();renderCareer()}
+function teamPicker(){document.getElementById("eventTitle").textContent="Choose your franchise";document.getElementById("eventText").textContent="Select a team to sign with. Your choice becomes part of your career story.";let c=document.getElementById("choices");c.innerHTML=teams.map(t=>`<button class="choice" onclick="signTeam('${t[0]}')">${t[0]} <small>${t[1]} · Fictional career destination</small></button>`).join("")}
+function signTeam(name){if(player.stage==="contract")player.season+=1;player.team=name;player.salary=player.salary==="$2.4M / 1 year"?"$2.4M / 1 year":"Rookie contract";player.stage="season";player.fans+=5000;log("Signed with the "+name+". Welcome to the league.");save();renderCareer()}
+function resetCareer(){if(confirm("Reset this career? This cannot be undone.")){player=null;localStorage.removeItem("courtsideCareer");renderCareer()}}
+function renderTeams(){let q=(document.getElementById("teamSearch").value||"").toLowerCase();document.getElementById("teams").innerHTML=teams.filter(t=>(t[0]+" "+t[1]).toLowerCase().includes(q)).map(t=>`<button class="team" onclick="teamInfo('${t[0]}')"><b>${t[0]}</b><small>${t[1]}</small></button>`).join("")}
+function teamInfo(n){alert(n+"\\n\\nUse this franchise as a destination in My Career when a contract decision appears.")}
+function renderProfile(){let el=document.getElementById("profileCard");if(!player){el.innerHTML='<h3>No player created yet</h3><p class="muted">Start a career to build your player card.</p><button class="primary" onclick="showTab(\\'career\\')">Create player</button>';return}el.innerHTML=`<div class="eyebrow">COURTSIDE PLAYER CARD</div><h2 style="font-size:34px">${player.name}</h2><p class="muted">${player.position} · ${player.style} · ${player.path}</p><div class="stats"><div class="stat"><small>OVR</small><strong>${player.ovr}</strong></div><div class="stat"><small>TEAM</small><strong style="font-size:17px">${player.team}</strong></div><div class="stat"><small>SEASON</small><strong>${player.season}</strong></div><div class="stat"><small>CONTRACT</small><strong style="font-size:17px">${player.salary}</strong></div></div><p>Fans: ${player.fans.toLocaleString()}</p>`}
+renderTeams();renderCareer();
+</script>
+</body></html>
